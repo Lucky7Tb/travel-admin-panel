@@ -29,32 +29,38 @@ const routes = [
       {
         path: "/destination",
         name: "destination",
-        component: () => import("@/views/pages/app/master-data/destination/Index.vue")
+        component: () =>
+          import("@/views/pages/app/master-data/destination/Index.vue")
       },
       {
         path: "/destination-create",
         name: "destination-create",
-        component: () => import("@/views/pages/app/master-data/destination/Create.vue")
+        component: () =>
+          import("@/views/pages/app/master-data/destination/Create.vue")
       },
       {
         path: "/destination/:id",
         name: "destination-update",
-        component: () => import("@/views/pages/app/master-data/destination/Update.vue")
+        component: () =>
+          import("@/views/pages/app/master-data/destination/Update.vue")
       },
       {
         path: "/tourpackage",
         name: "tourpackage",
-        component: () => import("@/views/pages/app/master-data/tour-package/Index.vue")
+        component: () =>
+          import("@/views/pages/app/master-data/tour-package/Index.vue")
       },
       {
         path: "/tourpackage-create",
         name: "tourpackage-create",
-        component: () => import("@/views/pages/app/master-data/tour-package/Create.vue")
+        component: () =>
+          import("@/views/pages/app/master-data/tour-package/Create.vue")
       },
       {
         path: "/tourpackage/:id",
         name: "tourpackage-update",
-        component: () => import("@/views/pages/app/master-data/tour-package/Update.vue")
+        component: () =>
+          import("@/views/pages/app/master-data/tour-package/Update.vue")
       }
     ]
   },
@@ -91,7 +97,7 @@ function isLogin() {
 
 router.beforeEach((to, from, next) => {
   if (to.matched.some(record => record.meta.requiresAuth)) {
-    if (isLogin) {
+    if (isLogin()) {
       next({
         path: "/login",
         query: { redirect: to.fullPath }
@@ -107,15 +113,15 @@ router.beforeEach((to, from, next) => {
 router.beforeResolve((to, from, next) => {
   // If this isn't an initial page load.
   if (to.name) {
-      // Start the route progress bar.
-      NProgress.start()
+    // Start the route progress bar.
+    NProgress.start();
   }
-  next()
-})
+  next();
+});
 
 router.afterEach(() => {
   // Complete the animation of the route progress bar.
-  NProgress.done()
-})
+  NProgress.done();
+});
 
 export default router;

@@ -1,6 +1,12 @@
 <template>
   <div>
-    <a-button shape="round" icon="arrow-left" style="margin-bottom: 2rem" @click="goBack">Back</a-button>
+    <a-button
+      shape="round"
+      icon="arrow-left"
+      style="margin-bottom: 2rem"
+      @click="goBack"
+      >Back</a-button
+    >
     <a-form-model
       ref="form"
       :model="form"
@@ -18,7 +24,10 @@
           }
         "
       >
-        <a-input placeholder="Masukan nama paket" v-model="form.tour_package_name" />
+        <a-input
+          placeholder="Masukan nama paket"
+          v-model="form.tour_package_name"
+        />
       </a-form-model-item>
       <a-form-model-item
         label="Destinasi"
@@ -35,7 +44,8 @@
             v-for="destination in dataDestination"
             :key="destination.id"
             :value="destination.id"
-          >{{ destination.destination_name }}</a-select-option>
+            >{{ destination.destination_name }}</a-select-option
+          >
         </a-select>
       </a-form-model-item>
       <a-form-model-item
@@ -73,15 +83,12 @@
             <p class="ant-upload-drag-icon">
               <a-icon type="upload" />
             </p>
-            <p class="ant-upload-text">Drag atau klik untuk upload gambar poster</p>
+            <p class="ant-upload-text">
+              Drag atau klik untuk upload gambar poster
+            </p>
             <p class="ant-upload-hint">
               Support format gambar
-              <i>
-                <strong>.png</strong>
-              </i>,
-              <i>
-                <strong>.jpg</strong>
-              </i>,
+              <i> <strong>.png</strong> </i>, <i> <strong>.jpg</strong> </i>,
               <i>
                 <strong>.jpeg</strong>
               </i>
@@ -118,8 +125,12 @@
         />
       </a-form-model-item>
       <a-form-model-item :wrapper-col="{ span: 15, offset: 5 }">
-        <a-button size="large" type="primary" block @click="updateTourPackage">Save</a-button>
-        <a-button style="margin-top: 1rem" size="large" block @click="resetForm">Cancel</a-button>
+        <a-button size="large" type="primary" block @click="updateTourPackage"
+          >Save</a-button
+        >
+        <a-button style="margin-top: 1rem" size="large" block @click="resetForm"
+          >Cancel</a-button
+        >
       </a-form-model-item>
     </a-form-model>
   </div>
@@ -265,14 +276,11 @@ export default {
       ];
       return false;
     },
-    async updateTourPackage(){
-       this.$message.loading("Loading....", 0);
+    async updateTourPackage() {
+      this.$message.loading("Loading....", 0);
       try {
         const dataDestination = new FormData();
-         dataDestination.append(
-          "tour_package_id",
-          this.form.tour_package_id
-        );
+        dataDestination.append("tour_package_id", this.form.tour_package_id);
         dataDestination.append(
           "tour_package_name",
           this.form.tour_package_name
@@ -324,5 +332,4 @@ export default {
 };
 </script>
 
-<style>
-</style>
+<style></style>

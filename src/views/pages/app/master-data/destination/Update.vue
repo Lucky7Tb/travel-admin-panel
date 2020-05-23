@@ -66,32 +66,32 @@ export default {
   data() {
     return {
       labelCol: {
-        span: 4,
+        span: 4
       },
       wrapperCol: {
-        span: 15,
+        span: 15
       },
       form: {
         destination_id: undefined,
         destination_name: "",
-        destination_description: "",
+        destination_description: ""
       },
       rules: {
         destination_name: [
           {
             required: true,
             message: "Harap masukan nama destinasi",
-            trigger: "blur",
-          },
+            trigger: "blur"
+          }
         ],
         destination_description: [
           {
             max: 80,
             message: "Harap persingkat deskripsi destinasi",
-            trigger: "blur",
-          },
-        ],
-      },
+            trigger: "blur"
+          }
+        ]
+      }
     };
   },
   mounted() {
@@ -103,17 +103,18 @@ export default {
     },
     async retrieveDestination() {
       const {
-        data: { dataDestination },
+        data: { dataDestination }
       } = await this.$http({
         method: "POST",
         url: "/destination/retrive",
         data: {
-          destination_id: this.$route.params.id,
-        },
+          destination_id: this.$route.params.id
+        }
       });
       this.form.destination_id = this.$route.params.id;
       this.form.destination_name = dataDestination.destination_name;
-      this.form.destination_description = dataDestination.destination_description;
+      this.form.destination_description =
+        dataDestination.destination_description;
     },
     async updateDestination() {
       this.$message.loading("Loading....", 0);
@@ -124,8 +125,8 @@ export default {
           data: {
             destination_id: this.form.destination_id,
             destination_name: this.form.destination_name,
-            destination_description: this.form.destination_description,
-          },
+            destination_description: this.form.destination_description
+          }
         });
         this.$message.destroy();
         this.$message.success(`${data.message}`, 2);
@@ -135,7 +136,7 @@ export default {
         if (error.response.status === 400) {
           this.$message.destroy();
           this.$message.error("Error! Cek kembali data inputan anda", 2);
-          this.$refs.form.validate((valid) => {
+          this.$refs.form.validate(valid => {
             if (!valid) {
               return false;
             }
@@ -148,7 +149,7 @@ export default {
     },
     resetForm() {
       this.$refs.form.resetFields();
-    },
-  },
+    }
+  }
 };
 </script>

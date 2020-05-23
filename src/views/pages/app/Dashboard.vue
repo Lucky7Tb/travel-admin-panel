@@ -5,16 +5,15 @@
 </template>
 
 <script>
-
 export default {
   name: "dashboard",
   data() {
-    return{
-      message: '',
+    return {
+      message: "",
       chats: []
-    }
+    };
   },
-  mounted(){
+  mounted() {
     // this.$socket.on('ready', () => {
     //   console.log("Halo sudah subscribe nih");
     // });
@@ -23,10 +22,9 @@ export default {
     // })
   },
   methods: {
-    // SendMessage() { 
+    // SendMessage() {
     //   this.$socket.emit("message", {message: this.message, isAdmin: false});
     //   this.chats.push({message: 'me: ' + this.message, isAdmin: false});
-
     //   this.message = '';
     // }
   }

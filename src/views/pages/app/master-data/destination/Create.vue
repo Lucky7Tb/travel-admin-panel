@@ -1,6 +1,12 @@
 <template>
   <div>
-    <a-button shape="round" icon="arrow-left" style="margin-bottom: 2rem" @click="goBack">Back</a-button>
+    <a-button
+      shape="round"
+      icon="arrow-left"
+      style="margin-bottom: 2rem"
+      @click="goBack"
+      >Back</a-button
+    >
     <a-form-model
       ref="form"
       :model="form"
@@ -8,15 +14,19 @@
       :label-col="labelCol"
       :wrapper-col="wrapperCol"
     >
-      <a-form-model-item label="Nama destinasi" ref="destination_name" prop="destination_name">
+      <a-form-model-item
+        label="Nama destinasi"
+        ref="destination_name"
+        prop="destination_name"
+      >
         <a-input
           v-model="form.destination_name"
           placeholder="Masukan nama destinasi"
           @blur="
-					() => {
-						$refs.destination_name.onFieldBlur();
-					}
-				"
+            () => {
+              $refs.destination_name.onFieldBlur();
+            }
+          "
         />
       </a-form-model-item>
       <a-form-model-item
@@ -28,15 +38,19 @@
           v-model="form.destination_description"
           type="textarea"
           @blur="
-					() => {
-						$refs.destination_description.onFieldBlur();
-					}
-				"
+            () => {
+              $refs.destination_description.onFieldBlur();
+            }
+          "
         />
       </a-form-model-item>
       <a-form-model-item :wrapper-col="{ span: 15, offset: 5 }">
-        <a-button size="large" type="primary" block @click="submitDestination">Save</a-button>
-        <a-button style="margin-top: 1rem" size="large" @click="resetForm" block>Cancel</a-button>
+        <a-button size="large" type="primary" block @click="submitDestination"
+          >Save</a-button
+        >
+        <a-button style="margin-top: 1rem" size="large" @click="resetForm" block
+          >Cancel</a-button
+        >
       </a-form-model-item>
     </a-form-model>
   </div>
