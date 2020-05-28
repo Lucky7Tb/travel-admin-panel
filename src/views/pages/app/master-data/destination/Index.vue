@@ -69,7 +69,7 @@ export default {
     };
   },
   mounted() {
-    this.getDestinationData();
+    this.getDestinationData()
   },
   methods: {
     async getDestinationData() {

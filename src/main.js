@@ -14,9 +14,11 @@ const LocalStorage = new secureLocalStorage();
 
 const storage = LocalStorage.get("AdminData");
 
-Vue.use(PerfectScrollbar);
-
 // const ws = WebSocket("ws://127.0.0.1:3333");
+
+let token = "";
+
+Vue.use(PerfectScrollbar);
 
 // ws.connect();
 
@@ -29,8 +31,6 @@ Vue.use(PerfectScrollbar);
 // });
 
 // Vue.prototype.$socket =  ws.subscribe('chat');
-
-let token = "";
 
 if (storage) {
   token = JSON.parse(storage);
