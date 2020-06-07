@@ -61,6 +61,24 @@ const routes = [
         name: "tourpackage-update",
         component: () =>
           import("@/views/pages/app/master-data/tour-package/Update.vue")
+      },
+      {
+        path: "/tourpackageschedule",
+        name: "tourpackageschedule",
+        component: () =>
+          import("@/views/pages/app/master-data/tour-package-schedule/Index.vue")
+      },
+      {
+        path: "/tourpackageschedule-create",
+        name: "tourpackageschedule-create",
+        component: () =>
+          import("@/views/pages/app/master-data/tour-package-schedule/Create.vue")
+      },
+      {
+        path: "/tourpackageschedule/:id",
+        name: "tourpackageschedule-update",
+        component: () =>
+          import("@/views/pages/app/master-data/tour-package-schedule/Update.vue")
       }
     ]
   },

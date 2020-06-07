@@ -200,7 +200,7 @@ export default {
       }
     };
   },
-  mounted() {
+  created() {
     this.getDestination();
   },
   methods: {

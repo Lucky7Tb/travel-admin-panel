@@ -201,7 +201,7 @@ export default {
       }
     };
   },
-  mounted() {
+  created() {
     this.getDestination();
     this.getTourPackage();
   },

@@ -45,7 +45,6 @@ export default {
         total: 0,
         defaultPageSize: 5
       },
-      loading: false,
       columns: [
         {
           title: "Destinasi",
@@ -65,7 +64,19 @@ export default {
         },
         {
           title: "Kategori",
-          dataIndex: "tour_package_category"
+          dataIndex: "tour_package_category",
+          filters: [
+            {
+              text: 'Umum',
+              value: 'UMUM',
+            },
+            {
+              text: 'Instansi',
+              value: 'INSTANSI',
+            },
+          ],
+          filterMultiple: false,
+          onFilter: (value, record) => record.tour_package_category.indexOf(value) === 0
         },
         {
           title: "Aksi",
@@ -76,7 +87,7 @@ export default {
       ]
     };
   },
-  mounted() {
+  created() {
     this.getTourPackageData();
   },
   methods: {

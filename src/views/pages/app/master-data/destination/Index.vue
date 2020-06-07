@@ -45,7 +45,6 @@ export default {
         total: 0,
         defaultPageSize: 5
       },
-      loading: false,
       columns: [
         {
           title: "Destinasi",
@@ -68,7 +67,7 @@ export default {
       ]
     };
   },
-  mounted() {
+  created() {
     this.getDestinationData()
   },
   methods: {
